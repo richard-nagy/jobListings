@@ -4,25 +4,21 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import JobDetailsPage from "./components/JobDetailsPage";
 import JobListPage from "./components/JobListPage";
 import theme from "./theme";
+import { store } from "./store";
+import { Provider } from "react-redux";
 
 const App = () => {
-    return (
+    return <Provider store={store}>
         <ThemeProvider theme={theme}>
             <CssBaseline />
             <Router>
                 <Routes>
-                    <Route
-                        path="/"
-                        element={<JobListPage />}
-                    />
-                    <Route
-                        path="/job/:id"
-                        element={<JobDetailsPage />}
-                    />
+                    <Route path="/" element={<JobListPage />} />
+                    <Route path="/job/:id" element={<JobDetailsPage />} />
                 </Routes>
             </Router>
         </ThemeProvider>
-    );
+    </Provider>;
 };
 
 export default App;

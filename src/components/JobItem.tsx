@@ -1,4 +1,3 @@
-import { JSX } from "@emotion/react/jsx-runtime";
 import { Button, Card, CardContent, Typography } from "@mui/material";
 import { FC } from "react";
 import { useNavigate } from "react-router-dom";
@@ -8,7 +7,7 @@ interface JobItemProps {
     title: string;
     description: string;
 }
-const JobItem: FC<JobItemProps> = (props: JobItemProps): JSX.Element => {
+const JobItem: FC<JobItemProps> = (props: JobItemProps) => {
     //#region Props and States
     const { title, description, id } = props;
 

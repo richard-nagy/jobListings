@@ -1,9 +1,8 @@
 ## Version 0.1
-The goal of this project is to create a Job list manager app. Which fetches and displays the data.
-### v0.1 Development Goals:
- - [x] Implement react-router
- - [x] Implement MUI
- - [x] Implement Redux
- - [x] Add a *public/data.json* file as a mocked fetch source
- - [x] Fetch the data from the *public/data.json* file 
- - [x] Add ESlint rules
+The goal of this project is to create a Job list manager app. Which fetches and displays job data.
+With a login system where an admin can edit the jobs, and a user who can save them.
+### v0.2 Development Goals:
+ - [ ] Add a header bar
+ - [ ] Add users and option to log in out
+ - [ ] Admin can edit job listings
+ - [ ] User can save job listings

@@ -1,0 +1,19 @@
+{
+    "jobs": [
+        {
+            "id": "123e4567-e89b-12d3-a456-426614174000",
+            "title": "Software Engineer",
+            "description": "Responsible for developing and maintaining software applications."
+        },
+        {
+            "id": "223e4567-e89b-12d3-a456-426614174001",
+            "title": "Data Scientist",
+            "description": "Analyze and interpret complex data to help companies make decisions."
+        },
+        {
+            "id": "323e4567-e89b-12d3-a456-426614174002",
+            "title": "Product Manager",
+            "description": "Oversee the development and delivery of products."
+        }
+    ]
+}

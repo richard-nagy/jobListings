@@ -1,4 +1,4 @@
-import { Container, Typography } from "@mui/material";
+import { Container } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import { useSelector } from "react-redux";
 import { RootState } from "../store";
@@ -23,10 +23,11 @@ const JobListPage = () => {
     }
 
     return <Container>
-        <Typography variant="h4">
-            Job Listing
-        </Typography>
-        <Grid container spacing={2}>
+        <Grid
+            container
+            spacing={2}
+            padding={4}
+        >
             {
                 jobs.map(job =>
                     <Grid

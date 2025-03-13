@@ -1,7 +1,7 @@
 export type Guid = string;
 
 export interface Job {
-    id: number;
+    id: Guid;
     title: string;
     description: string;
 };

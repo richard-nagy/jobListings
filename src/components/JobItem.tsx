@@ -37,7 +37,7 @@ const JobItem: FC<JobItemProps> = (props: JobItemProps) => {
                     size="small"
                     variant="contained"
                     color="primary"
-                    style={{ marginTop: '10px' }}
+                    style={{ marginTop: "10px" }}
                     onClick={handleViewDetails}
                 >
                     View Details

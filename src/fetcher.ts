@@ -12,14 +12,14 @@ export const fetchJobs = async (): Promise<Job[]> => {
         const response = await fetch("../public/data.json");
 
         if (!response.ok) {
-            throw new Error('Network response was not ok');
+            throw new Error("Network response was not ok");
         }
 
         const jobsData = await response.json();
 
         return jobsData.jobs;
     } catch (error) {
-        console.error('Failed to fetch jobs:', error);
+        console.error("Failed to fetch jobs:", error);
         throw error;
     }
 };

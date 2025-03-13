@@ -1,14 +1,14 @@
-import { configureStore, createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { Job } from './common/types';
-import { fetchJobs } from './fetcher';
+import { configureStore, createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { Job } from "./common/types";
+import { fetchJobs } from "./fetcher";
 
-export const fetchJobsAction = createAsyncThunk('jobs/fetchJobs', async () => {
+export const fetchJobsAction = createAsyncThunk("jobs/fetchJobs", async () => {
     const jobs = await fetchJobs();
     return jobs;
 });
 
 const jobsSlice = createSlice({
-    name: 'jobs',
+    name: "jobs",
     initialState: {
         jobs: [] as Job[],
         loading: false,
@@ -27,7 +27,7 @@ const jobsSlice = createSlice({
             })
             .addCase(fetchJobsAction.rejected, (state, action) => {
                 state.loading = false;
-                state.error = action.error.message || 'Failed to fetch jobs';
+                state.error = action.error.message || "Failed to fetch jobs";
             });
     },
 });

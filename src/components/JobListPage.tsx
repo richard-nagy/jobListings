@@ -1,5 +1,5 @@
 import { Container, Typography } from "@mui/material";
-import Grid from '@mui/material/Grid2';
+import Grid from "@mui/material/Grid2";
 import { useSelector } from "react-redux";
 import { RootState } from "../store";
 import JobItem from "./JobItem";
@@ -9,7 +9,7 @@ const JobListPage = () => {
     const { jobs, loading, error } = useSelector((state: RootState) => state.jobs);
     //#endregion
 
-    //#region 
+    //#region Renders
     if (loading) {
         return <div>
             Loading...

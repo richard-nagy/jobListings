@@ -2,7 +2,7 @@
 The goal of this project is to create a Job list manager app. Which fetches and displays the data.
 ### v0.1 Development Goals:
  - [ ] Implement react-router
- - [ ] Implement MUI
+ - [x] Implement MUI
  - [ ] Implement Redux
  - [ ] Add a *public/data.json* file as a mocked fetch source
  - [ ] Fetch the data from the *public/data.json* file 

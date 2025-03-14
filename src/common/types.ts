@@ -27,6 +27,7 @@ export enum DataType {
 export interface UsersReducer {
     users: User[];
     activeUser: User | null;
+    errorMessage: string | null;
 };
 
 export interface JobsReducer {

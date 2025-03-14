@@ -10,6 +10,7 @@ export const fetchUsersAction = createAsyncThunk("users/fetchUsers", async () =>
 const initialState: UsersReducer = {
     users: [],
     activeUser: null,
+    errorMessage: null,
 };
 
 const usersSlice = createSlice({
@@ -24,13 +25,16 @@ const usersSlice = createSlice({
                     user.password === action.payload.password
             );
 
-            console.log(action.payload);
-            console.log(users);
-            console.log(user);
             state.activeUser = user ?? null;
+            state.errorMessage = user
+                ? null
+                : "Invalid username or password";
         },
         logoutUser: (state) => {
             state.activeUser = null;
+        },
+        clearErrorMessage: (state) => {
+            state.errorMessage = null;
         },
     },
     extraReducers: (builder) => {
@@ -40,5 +44,5 @@ const usersSlice = createSlice({
     },
 });
 
-export const { loginUser, logoutUser } = usersSlice.actions;
+export const { loginUser, logoutUser, clearErrorMessage } = usersSlice.actions;
 export default usersSlice;

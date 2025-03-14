@@ -1,22 +1,23 @@
+import { Alert, Snackbar } from "@mui/material";
 import { FC, ReactNode, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { fetchJobsAction } from "../redux/jobsActionAndReducer";
 import { AppDispatch, RootState } from "../redux/store";
-import { fetchUsersAction } from "../redux/usersActionAndReducer";
+import { clearEditUserErrorMessage, fetchUsersAction } from "../redux/usersActionAndReducer";
 import LoginPage from "./LoginPage";
 
 interface ContainerProps {
     children: ReactNode;
 }
 const Container: FC<ContainerProps> = (props: ContainerProps) => {
-    //#region Props
+    //#region Props 
     const { children } = props;
 
     const dispatch = useDispatch<AppDispatch>();
     const navigate = useNavigate();
 
-    const { activeUser } = useSelector((state: RootState) => state.users);
+    const { activeUser, editUserErrorMessage: errorMessage } = useSelector((state: RootState) => state.users);
     //#endregion
 
     //#region UseEffects
@@ -27,7 +28,7 @@ const Container: FC<ContainerProps> = (props: ContainerProps) => {
 
     useEffect(() => {
         if (activeUser === null) {
-            navigate('/');
+            navigate("/");
         }
     }, [activeUser, navigate]);
     //#endregion
@@ -37,7 +38,23 @@ const Container: FC<ContainerProps> = (props: ContainerProps) => {
         return <LoginPage />;
     }
 
-    return children;
+    return <>
+        <Snackbar
+            open={!!errorMessage}
+            autoHideDuration={6000}
+            anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+            onClose={() => dispatch(clearEditUserErrorMessage())}
+        >
+            <Alert
+                onClose={() => dispatch(clearEditUserErrorMessage())}
+                severity="error"
+                variant="filled"
+            >
+                {errorMessage}
+            </Alert>
+        </Snackbar>
+        {children}
+    </>;
     //#endregion
 };
 

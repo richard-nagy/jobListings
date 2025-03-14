@@ -1,16 +1,22 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { DataType, LoginData, User, UsersReducer } from "../common/types";
-import { fetchData } from "./fetcher";
+import { editUserData, fetchData } from "./fetch";
 
 export const fetchUsersAction = createAsyncThunk("users/fetchUsers", async () => {
     const users = await fetchData<User[]>(DataType.users);
     return users;
 });
 
+export const editUserDataAction = createAsyncThunk("users/editUserData", async (newUserData: User) => {
+    await editUserData(newUserData);
+    return newUserData;
+});
+
 const initialState: UsersReducer = {
     users: [],
     activeUser: null,
-    errorMessage: null,
+    loginErrorMessage: null,
+    editUserErrorMessage: null,
 };
 
 const usersSlice = createSlice({
@@ -26,23 +32,30 @@ const usersSlice = createSlice({
             );
 
             state.activeUser = user ?? null;
-            state.errorMessage = user
+            state.loginErrorMessage = user
                 ? null
                 : "Invalid username or password";
         },
         logoutUser: (state) => {
             state.activeUser = null;
         },
-        clearErrorMessage: (state) => {
-            state.errorMessage = null;
+        clearLoginErrorMessage: (state) => {
+            state.loginErrorMessage = null;
+        },
+        clearEditUserErrorMessage: (state) => {
+            state.editUserErrorMessage = null;
         },
     },
     extraReducers: (builder) => {
         builder.addCase(fetchUsersAction.fulfilled, (state, action) => {
             state.users = action.payload;
         });
+        /** Because the editUserDataAction always fails, we only handle its rejection. */
+        builder.addCase(editUserDataAction.rejected, (state, action) => {
+            state.editUserErrorMessage = action.error.message || "Failed to edit user data";
+        });
     },
 });
 
-export const { loginUser, logoutUser, clearErrorMessage } = usersSlice.actions;
+export const { loginUser, logoutUser, clearLoginErrorMessage, clearEditUserErrorMessage } = usersSlice.actions;
 export default usersSlice;

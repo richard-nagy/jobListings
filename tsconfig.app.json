@@ -26,6 +26,6 @@
     },
     "include": [
         "src",
-        "src/redux/fetcher.ts"
+        "src/redux/fetch.ts"
     ]
 }

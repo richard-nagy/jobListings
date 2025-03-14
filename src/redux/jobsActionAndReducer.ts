@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { DataType, Job, JobsReducer } from "../common/types";
-import { fetchData } from "./fetcher";
+import { fetchData } from "./fetch";
 
 export const fetchJobsAction = createAsyncThunk("jobs/fetchJobs", async () => {
     const jobs = await fetchData<Job[]>(DataType.jobs);

@@ -19,6 +19,11 @@ export interface LoginData {
     password: string;
 }
 
+export enum Role {
+    admin = 0,
+    user = 1,
+}
+
 export enum DataType {
     jobs = 'jobs',
     users = 'users'
@@ -27,7 +32,8 @@ export enum DataType {
 export interface UsersReducer {
     users: User[];
     activeUser: User | null;
-    errorMessage: string | null;
+    loginErrorMessage: string | null;
+    editUserErrorMessage: string | null;
 };
 
 export interface JobsReducer {
@@ -35,3 +41,8 @@ export interface JobsReducer {
     loading: boolean;
     error: string | null;
 };
+
+export type ResponseDate = {
+    jobs: Job[];
+    users: User[];
+}

@@ -15,5 +15,21 @@
             "title": "Product Manager",
             "description": "Oversee the development and delivery of products."
         }
+    ],
+    "users": [
+        {
+            "id": "423e4567-e89b-12d3-a456-426614174003",
+            "username": "User",
+            "password": "p",
+            "email": "",
+            "name": ""
+        },
+        {
+            "id": "523e4567-e89b-12d3-a456-426614174004",
+            "username": "Admin",
+            "password": "p",
+            "email": "",
+            "name": ""
+        }
     ]
 }

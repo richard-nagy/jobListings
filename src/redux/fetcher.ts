@@ -1,4 +1,4 @@
-import { Job } from "./common/types";
+import { DataType } from "../common/types";
 
 /**
  * Fetches job listings from a local JSON file.
@@ -7,7 +7,7 @@ import { Job } from "./common/types";
  * @returns {Promise<Job[]>} A promise that resolves to an array of job objects.
  * @throws Will throw an error if the network response is not ok or if fetching fails.
  */
-export const fetchJobs = async (): Promise<Job[]> => {
+export const fetchData = async <T>(dataType: DataType): Promise<T> => {
     try {
         const response = await fetch("../public/data.json");
 
@@ -15,11 +15,17 @@ export const fetchJobs = async (): Promise<Job[]> => {
             throw new Error("Network response was not ok");
         }
 
-        const jobsData = await response.json();
+        const data = await response.json();
 
-        return jobsData.jobs;
+        switch (dataType) {
+            case DataType.users:
+                return data.users;
+            case DataType.jobs:
+            default:
+                return data.jobs;
+        }
+
     } catch (error) {
-        console.error("Failed to fetch jobs:", error);
         throw error;
     }
 };

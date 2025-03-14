@@ -1,7 +1,7 @@
 import { Container } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import { useSelector } from "react-redux";
-import { RootState } from "../store";
+import { RootState } from "../../redux/store";
 import JobItem from "./JobItem";
 
 const JobListPage = () => {

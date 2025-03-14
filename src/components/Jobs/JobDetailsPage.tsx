@@ -2,12 +2,13 @@ import { Typography } from "@mui/material";
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getJobsRecord } from "../selectors";
+import { getJobsRecord } from "../../redux/selectors";
 
 const JobDetailsPage = () => {
     //#region Props and States
-    const jobsRecord = useSelector(getJobsRecord);
     const { id } = useParams<{ id: string }>();
+
+    const jobsRecord = useSelector(getJobsRecord);
 
     const job = useMemo(() => {
         if (id) {

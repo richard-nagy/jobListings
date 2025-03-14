@@ -1,19 +1,21 @@
-import { configureStore, createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { Job } from "./common/types";
-import { fetchJobs } from "./fetcher";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { DataType, Job, JobsReducer } from "../common/types";
+import { fetchData } from "./fetcher";
 
 export const fetchJobsAction = createAsyncThunk("jobs/fetchJobs", async () => {
-    const jobs = await fetchJobs();
+    const jobs = await fetchData<Job[]>(DataType.jobs);
     return jobs;
 });
 
+const initialState: JobsReducer = {
+    jobs: [],
+    loading: false,
+    error: null,
+};
+
 const jobsSlice = createSlice({
     name: "jobs",
-    initialState: {
-        jobs: [] as Job[],
-        loading: false,
-        error: null as string | null,
-    },
+    initialState: initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder
@@ -32,11 +34,4 @@ const jobsSlice = createSlice({
     },
 });
 
-export const store = configureStore({
-    reducer: {
-        jobs: jobsSlice.reducer,
-    },
-});
-
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+export default jobsSlice;

@@ -14,6 +14,84 @@
             "id": "323e4567-e89b-12d3-a456-426614174002",
             "title": "Product Manager",
             "description": "Oversee the development and delivery of products."
+        },
+        {
+            "id": "423e4567-e89b-12d3-a456-426614174003",
+            "title": "DevOps Engineer",
+            "description": "Manage and optimize infrastructure and deployment pipelines."
+        },
+        {
+            "id": "523e4567-e89b-12d3-a456-426614174004",
+            "title": "UX/UI Designer",
+            "description": "Design user-friendly interfaces and improve user experience."
+        },
+        {
+            "id": "623e4567-e89b-12d3-a456-426614174005",
+            "title": "Cybersecurity Analyst",
+            "description": "Protect systems and networks from cyber threats and vulnerabilities."
+        },
+        {
+            "id": "723e4567-e89b-12d3-a456-426614174006",
+            "title": "Cloud Architect",
+            "description": "Design and manage cloud infrastructure and services."
+        },
+        {
+            "id": "823e4567-e89b-12d3-a456-426614174007",
+            "title": "Machine Learning Engineer",
+            "description": "Build and deploy machine learning models to solve business problems."
+        },
+        {
+            "id": "923e4567-e89b-12d3-a456-426614174008",
+            "title": "Technical Writer",
+            "description": "Create documentation and guides for technical products and services."
+        },
+        {
+            "id": "a23e4567-e89b-12d3-a456-426614174009",
+            "title": "Business Analyst",
+            "description": "Bridge the gap between IT and business by analyzing processes and requirements."
+        },
+        {
+            "id": "b23e4567-e89b-12d3-a456-426614174010",
+            "title": "Mobile App Developer",
+            "description": "Develop and maintain mobile applications for iOS and Android platforms."
+        },
+        {
+            "id": "c23e4567-e89b-12d3-a456-426614174011",
+            "title": "Database Administrator",
+            "description": "Manage and maintain database systems to ensure data integrity and performance."
+        },
+        {
+            "id": "d23e4567-e89b-12d3-a456-426614174012",
+            "title": "AI Research Scientist",
+            "description": "Conduct research and develop innovative AI algorithms and systems."
+        },
+        {
+            "id": "e23e4567-e89b-12d3-a456-426614174013",
+            "title": "IT Support Specialist",
+            "description": "Provide technical support and troubleshooting for hardware and software issues."
+        },
+        {
+            "id": "f23e4567-e89b-12d3-a456-426614174014",
+            "title": "Full Stack Developer",
+            "description": "Work on both front-end and back-end development of web applications."
+        }
+    ],
+    "users": [
+        {
+            "id": "423e4567-e89b-12d3-a456-426614174003",
+            "username": "User",
+            "password": "p",
+            "email": "user@example.com",
+            "name": "John Doe",
+            "role": 1
+        },
+        {
+            "id": "523e4567-e89b-12d3-a456-426614174004",
+            "username": "Admin",
+            "password": "p",
+            "email": "admin@example.com",
+            "name": "Jane Smith",
+            "role": 0
         }
     ]
 }
